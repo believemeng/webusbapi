@@ -10,6 +10,10 @@ function setAllowWebUSBPolicy(res, path) {
   res.setHeaders('Feature-Policy', 'usb "*";');
 }
 
-app.use(express.static('public', { setHeaders: setAllowWebUSBPolicy }));
+app.use(
+  serveStatic(path.join(__dirname, 'public'), {
+    setHeaders: setAllowWebUSBPolicy
+  })
+);
 
 app.listen(PORT);
