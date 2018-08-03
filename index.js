@@ -1,11 +1,15 @@
-var express = require('express')
-var serveStatic = require('serve-static')
-var PORT = process.env.PORT || 5000
+var express = require('express');
+var serveStatic = require('serve-static');
+var PORT = process.env.PORT || 5000;
 
-var app = express()
+var app = express();
 
 console.log(`running on: ${PORT}`);
- 
-app.use(express.static('public'))
 
-app.listen(PORT)
+function setAllowWebUSBPolicy(res, path) {
+  res.setHeaders('Feature-Policy', 'usb "*";');
+}
+
+app.use(express.static('public', { setHeaders: setAllowWebUSBPolicy }));
+
+app.listen(PORT);
