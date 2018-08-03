@@ -1,11 +1,11 @@
-// document.addEventListener('DOMContentLoaded', async () => {
-//   console.log('Startup ----');
-//   let devices = await navigator.usb.getDevices();
-//   devices.forEach(device => {
-//     // prettier-ignore
-//     console.log(`USB Device Detected: ${device.productName}     serial# ${device.serialNumber}     vendorId: ${device.vendorId}`);
-//   });
-// });
+document.addEventListener('DOMContentLoaded', async () => {
+  console.log('Startup ----');
+  let devices = await navigator.usb.getDevices();
+  devices.forEach(device => {
+    // prettier-ignore
+    console.log(`USB Device Detected: ${device.productName}     serial# ${device.serialNumber}     vendorId: ${device.vendorId}`);
+  });
+});
 
 navigator.usb.addEventListener('connect', event => {
   console.warn('A USB Device was connected');
