@@ -1,5 +1,6 @@
 var express = require('express');
 var serveStatic = require('serve-static');
+var path = require('path');
 var PORT = process.env.PORT || 5000;
 
 var app = express();
